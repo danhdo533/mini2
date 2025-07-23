@@ -1,0 +1,124 @@
+.menu-app-container {
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: white;
+  overflow: hidden;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+  z-index: 1000;
+  margin: 0;
+  padding: 0;
+}
+
+/* Add padding to the bottom of the body to prevent content from being hidden behind the fixed menu */
+body {
+  padding-bottom: 60px;
+}
+
+.menu-items-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  justify-content: space-evenly;  /* đều nhau trên toàn bộ chiều ngang */
+  align-items: center;
+  padding: 8px 0;
+}
+
+.menu-item {
+  width: 40px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: inline-flex;
+  height: 100%;
+}
+
+.menu-item .menu-icon {
+  filter: invert(14%) sepia(0%) saturate(0%) hue-rotate(231deg)
+    brightness(95%) contrast(84%);
+  transition: filter 0.2s;
+}
+.menu-item .menu-label {
+  color: #2b2b2b;
+  font-size: 8px;
+  transition: color 0.2s;
+}
+.menu-item.active .menu-icon {
+  filter: invert(31%) sepia(98%) saturate(3383%) hue-rotate(206deg)
+    brightness(97%) contrast(107%);
+}
+.menu-item.active .menu-label {
+  color: #0068ff;
+}
+.menu-icon-container {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.menu-icon {
+    width: 24px;
+    height: 24px;
+    position: static;
+    margin-left: 22px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-bottom: -10px;
+}
+
+.menu-label {
+  text-align: center;
+  font-size: 8px;
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  line-height: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  max-width: 40px;
+  color: #2B2B2B;
+}
+
+.menu-home-label {
+  color: #0068FF;
+}
+
+.menu-default-label {
+  color: #2B2B2B;
+}
+
+.cart-badge {
+  width: 14px;
+  height: 14px;
+  padding-left: 4px;
+  padding-right: 4px;
+  left: 25px;
+  top: 1px;
+  position: absolute;
+  background: #18C5FF;
+  border-radius: 7px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  display: flex;
+  color: #2B2B2B;
+}
+
+.cart-badge-text {
+  text-align: center;
+  color: white;
+  font-size: 7px;
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  line-height: 12px;
+  word-wrap: break-word;
+}

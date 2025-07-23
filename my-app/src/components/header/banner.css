@@ -1,0 +1,29 @@
+    .banner-slider {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    /* max-width: 100%;  */
+    margin: 0 auto;
+    height: 300px; /* hoặc chiều cao bạn muốn */
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    }
+
+    .banner-slider__wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%;
+    }
+
+    .banner-slider__slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    }
+
+    .banner-slider__slide img {
+    width: 100%;
+    height:80%;
+    display: block;
+    object-fit: cover;
+    object-position: center -20px; /* Điều chỉnh vị trí hình ảnh */
+    }

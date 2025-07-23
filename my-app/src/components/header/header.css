@@ -1,0 +1,126 @@
+/* ==== Container chung ==== */
+.site-header {
+  background-color: #0068FF;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  position: sticky; /* hoặc `fixed` nếu bạn muốn nó luôn hiện dù cuộn */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;    /* đảm bảo nó không bị nội dung khác đè lên */
+}
+
+/* ==== Phần trên: logo + dots + brand ==== */
+.header-top {
+  width: 358px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.logo__icon {
+  width: 32px; height: 32px;
+  background: #FEF3F2;
+  border-radius: 50%;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo__icon img {
+  width: 24px; height: 21px;
+}
+.logo__text {
+  color: #FFF;
+  font-family: Inter, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 15.6px;
+}
+
+/* nút share icon */
+.share-button {
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.share-button img {
+  /* assumes your SVG is monochrome; nếu không bạn có thể đổi màu bằng filter */
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
+}
+
+/* ==== Thanh tìm kiếm ==== */
+.search-bar {
+  position: relative;
+  width: 358px; height: 44px;
+  background: #FEFEFE;
+  border-radius: 12px;
+  outline: 1px solid #C7C7C8;
+  outline-offset: -1px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px 0 16px;
+  overflow: hidden;
+}
+.search-bar__placeholder {
+  color: #2B2B2B;
+  font-family: Inter, sans-serif;
+  font-size: 13px;
+  line-height: 18.33px;
+}
+.search-bar__fade {
+  position: absolute;
+  right: 12px;
+  width: 32px; height: 16px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    #FBFBFB 100%
+  );
+}
+.search-bar__icon {
+  position: absolute;
+  right: 12px;
+  width: 20px; height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-bar__icon img {
+  width: 100%; height: 100%;
+}
+
+.site-banner {
+  width: 100%;
+  /* nếu bạn muốn cố định chiều cao, ví dụ: height: 200px; */
+}
+.site-banner img {
+  width: 100%;
+  height: 100%;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  object-fit: cover;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}

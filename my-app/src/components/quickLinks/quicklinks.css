@@ -1,0 +1,76 @@
+.quick-links-container {
+  position: relative;
+  top: -20px;                   /* đẩy lên đè lên banner */
+  z-index: 1;                   /* đảm bảo nằm trên banner */
+  margin: 0 16px;               /* canh 2 bên cho khít */
+  background: #fff;
+  border-radius: 16px 16px 16px 16px; /* chỉ bo góc trên */
+  padding: 12px 16px;           /* chỉnh padding cho sát */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* optional nếu muốn đổ bóng */
+}
+
+.quick-links-wrapper {
+  display: flex;
+  gap: 12px;                    /* khoảng cách giữa các item */
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.quick-links-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.quick-link-item {
+  flex: 0 0 auto;
+  width: 64px;                  /* hoặc 66px tuỳ ý */
+  text-align: center;
+}
+
+.quick-link-icon-container {
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+
+.quick-link-icon-background {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px;
+  height: 48px;
+  background-color: #0068FF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quick-link-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 24px;
+  height: 24px;
+  color: white;
+  stroke: white;
+  fill: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quick-link-label {
+  margin-top: 6px;              /* tạo khoảng giữa icon và text */
+  color: #0068FF;
+  font-size: 13px;
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  line-height: 18.33px;
+  overflow-wrap: break-word;
+}
+.quick-link-label:hover {
+  text-decoration: underline;
+  color: #004BB5;               /* màu khi hover */
+}
