@@ -3,12 +3,13 @@ import { createDanhmuc } from '../Danhmuc/danhmuc.js'
 import { createHeader, createBanner } from '../header/header.js'
 import { createQuickLinks } from '../quickLinks/quickLinks.js'
 import { createCategories } from '../categories/categories.js'
+import { createReport } from '../Report/Report.js';
 
 export function createMenuApp() {
   const menuItems = [
     {
       id: 'home',
-      label: 'Trang chủ',
+      label: 'Home',
       icon: '/icons/home.svg',
       labelClass: 'menu-home-label',
       badge: false,
@@ -16,31 +17,31 @@ export function createMenuApp() {
     },
     {
       id: 'category',
-      label: 'Danh mục',
+      label: 'Category',
       icon: '/icons/category.svg',
       labelClass: 'menu-default-label',
       badge: false,
       active: false
     },
     {
-      id: 'offer',
-      label: 'Ưu đãi',
-      icon: '/icons/offer.svg',
+      id: 'Report',
+      label: 'Report',
+      icon: '/icons/report.svg',
       labelClass: 'menu-default-label',
       badge: false,
       active: false
     },
     {
       id: 'cart',
-      label: 'Giỏ hàng',
+      label: 'Cart',
       icon: '/icons/cart.svg',
       labelClass: 'menu-default-label',
       badge: false,
       active: false
     },
     {
-      id: 'member',
-      label: 'Thành viên',
+      id: 'Account',
+      label: 'Account',
       icon: '/icons/member.svg',
       labelClass: 'menu-default-label',
       badge: false,
@@ -101,6 +102,12 @@ export function createMenuApp() {
        root.append(
           createHeader(),
           createDanhmuc(),
+          menuAppContainer
+        )
+      }else if (item.id === 'Report') {
+        root.append(
+          createHeader(),
+          createReport(),
           menuAppContainer
         )
       }

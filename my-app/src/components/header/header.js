@@ -41,7 +41,7 @@ export function createHeader() {
     </span>
     <div class="search-bar__fade"></div>
     <div class="search-bar__icon">
-      <img src="/icons/find.svg" alt="Search" />
+      <img src="/search-icon.svg" alt="Search" />
     </div>
   `;
 

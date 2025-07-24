@@ -1,0 +1,260 @@
+/* Report.css */
+
+/* —— CSS variables —— */
+:root {
+  --color-primary:   #1E99FF;
+  --color-accent:    #20BD89;
+  --color-text:      #1F1F1F;
+  --color-subtext:   #666666;
+  --color-success:   #008F5D;
+  --color-warning:   #E29800;
+  --bg-white:        #FFFFFF;
+  --bg-light:        #EDF8FF;
+  --bg-lighter:      #FAF4FF;
+  --bg-chart-empty:  #E5E7EB;
+  --bar-color:       #C4B9FF;
+
+  --font-primary:    'Roboto', sans-serif;
+  --font-mono:       'Roboto Mono', monospace;
+}
+
+/* —— Layout helpers —— */
+.flex           { display: flex; }
+.flex-column    { flex-direction: column; }
+.flex-between   { justify-content: space-between; }
+.items-center   { align-items: center; }
+.gap-8          { gap: 0.5rem; }
+.gap-12         { gap: 0.75rem; }
+.gap-16         { gap: 1rem; }
+
+/* —— Report Container —— */
+.report-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  background: var(--bg-white);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* —— Date selector —— */
+.date-selector {
+  width: 100%;
+  background: var(--bg-white);
+  border: 1px solid var(--color-primary);
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+}
+.date-selector .date-arrow {
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.date-selector .date-arrow:hover {
+  background: rgba(30,153,255,0.1);
+}
+.date-selector .date-arrow img {
+  width: 16px; height: 16px;
+}
+.date-selector .date-info {
+  flex: 1; text-align: center;
+}
+.date-text {
+  font-family: var(--font-primary);
+  font-size: 10.92px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+.time-text {
+  font-family: var(--font-mono);
+  font-size: 8.73px;
+  color: var(--color-subtext);
+  margin-top: 0.25rem;
+}
+
+/* —— Highlight card —— */
+.highlight-card {
+  background: var(--bg-white);
+  border-left: 4px solid var(--color-accent);
+  border-radius: 6.55px;
+  padding: 6.55px;
+  display: flex;
+  flex-direction: column;
+  gap: 6.55px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* Card header */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-title {
+  font-family: var(--font-primary);
+  font-size: 10.92px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+.badge {
+  font-family: var(--font-primary);
+  font-size: 8.73px;
+  font-weight: 400;
+  color: black;
+  background: var(--bg-light);
+  padding: 2.18px;
+  border-radius: 2.18px;
+}
+
+/* —— Card Content theo Figma —— */
+.card-content {
+  /* giống style div outer trong Figma */
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 6.55px;               /* khoảng giữa các metric-row */
+  width: 100%;
+  height: 100%;
+  padding-top: 6.55px;
+  padding-bottom: 6.55px;
+}
+
+/* —— Mỗi hàng metric —— */
+.metric-row {
+  display: inline-flex;     /* thay vì flex thông thường */
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* —— Text Label và Value —— */
+.metric-row .label,
+.sub-badge .label {
+  font-size: 8.73px;
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  color: var(--color-text);
+}
+
+.metric-row .value,
+.sub-badge .value {
+  font-size: 8.73px;
+  font-family: Roboto, sans-serif;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* —— Sub‑badge (A3Ms) —— */
+.sub-badge {
+  /* giống style second div trong Figma */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 5.46px;
+
+  padding: 2.18px;
+  background: var(--bg-lighter);
+  border-radius: 2.18px;
+  outline: 0.27px solid #DBAEFF;
+  outline-offset: -0.27px;
+
+  width: 100%;
+}
+
+/* —— Donut chart —— */
+.chart-area {
+  position: relative;
+  width: 76.42px;
+  height: 76.42px;
+  margin: 0 auto;
+}
+
+.donut {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--color-accent) var(--pct),
+    var(--bg-chart-empty) var(--pct)
+  );
+  transition: background 0.3s ease;
+}
+
+.percent-text {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-primary);
+  font-size: 25.47px;
+  font-weight: 600;
+  color: var(--color-success);
+}
+/* Trend giữ nguyên */
+.trend {
+  position: absolute;
+  bottom: -8.73px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 5.46px;
+}
+.trend .dot {
+  width: 8.73px; height: 8.73px;
+  border-radius: 50%;
+  border: 1.09px solid var(--color-warning);
+}
+.trend-value {
+  font-family: var(--font-primary);
+  font-size: 8.73px;
+  font-weight: 700;
+  color: var(--color-warning);
+}
+.trend-label {
+  font-family: var(--font-primary);
+  font-size: 8.73px;
+  font-weight: 400;
+  color: var(--color-text);
+}
+
+/* Sparkline */
+.sparkline {
+  display: flex;
+  align-items: flex-end;
+  gap: 8.73px;
+  height: 69.52px;
+  border-bottom: 0.24px rgba(0,0,0,0.3) solid;
+}
+.sparkbar {
+  flex: 1;
+  position: relative;
+}
+.sparkbar .fill {
+  width: 100%;
+  background: rgba(137,121,255,0.6);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/* Day labels */
+.day-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4.37px;
+}
+.bar-label,
+.day-label {
+  font-family: var(--font-primary);
+  font-size: 8.73px;
+  font-weight: 500;
+  color: var(--color-text);
+}
