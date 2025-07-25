@@ -21,59 +21,262 @@ export function createReport() {
 
 // 3) Body báo cáo
 const bodyContainer = document.createElement('div');
-bodyContainer.className = 'highlight-card';
 bodyContainer.innerHTML = `
+<script>
+  document.querySelectorAll('.donut').forEach(el => {
+    const percentText = el.parentElement.querySelector('.percent-text');
+    const value = parseInt(percentText.textContent);
+    el.style.setProperty('--pct', '0%');
+    setTimeout(() => {
+      el.style.setProperty('--pct', value + '%');
+    }, 100);
+  });
+</script>
+
+
+<div class="report-box success">
   <!-- Header của card -->
   <div class="card-header">
     <div class="card-title text text--h5">Field Coach Plan compliance</div>
     <div class="header-badge text text--body">W%: <span class="text text--body">20%</span></div>
   </div>
+<div class="container">
+    <!-- Left Panel -->
+    <div class="left-panel">
+        <div class="label-block">
+            <div class="row">
+                <div class="label">Chỉ tiêu</div>
+                <div class="value">184</div>
+            </div>
+            <div class="row">
+                <div class="label">Thực đạt</div>
+                <div class="value">175</div>
+            </div>
+            <div class="row">
+                <div class="label">% target</div>
+                <div class="value">95%</div>
+            </div>
+        </div>
+        <div class="a3ms-box">
+            <div class="row">
+                <div class="label">A3Ms</div>
+                <div class="value">93%</div>
+            </div>
+        </div>
+    </div>
 
-  <!-- Metrics chính -->
-  <div class="card-content">
-    <div class="metrics">
-      <div class="metric-row">
-        <div class="label text text--body">Chỉ tiêu</div>
-        <div class="value text text--body-bold metric-target">184</div>
-      </div>
-      <div class="metric-row">
-        <div class="label text text--body">Thực đạt</div>
-        <div class="value text text--body-bold metric-achieved">175</div>
-      </div>
-      <div class="metric-row">
-        <div class="label text text--body">% target</div>
-        <div class="value text text--body-bold metric-rate">95%</div>
+    <!-- Middle Panel -->
+    <div class="middle-panel">
+        <div class="chart-area">
+          <div class="donut" style="--pct: 0%;"></div>
+          <div class="percent-text">95%</div>
+        </div>
+      <div class="month-change">
+          <div class="warning-dot">
+            <img src="/icons/Vector.svg" alt="Warning" />
+          </div>
+          <div class="month-change-text">
+              <span>0%</span>
+              <span> tháng trước</span>
+          </div>
       </div>
     </div>
-    <div class="sub-badge">
-      <div class="text text--body">A3Ms</div>
-      <div class="text text--body-bold metric-a3ms">93%</div>
-    </div>
-  </div>
 
- <div class="chart-area">
-  <div class="donut" style="--pct:95%;"></div>
-  <div class="percent-text">95%</div>
-  <div class="trend">
-    <div class="dot warning"></div>
-    <div class="text text--warning text--body-bold trend-value">0%</div>
-    <div class="text text--body trend-label">với tháng trước</div>
-  </div>
+    <!-- Right Panel -->
+    <div class="right-panel">
+        <div class="percent-row">
+            <div class="percent-value">90%</div>
+            <div class="percent-value">95%</div>
+            <div class="percent-value">95%</div>
+        </div>
+        <div class="bar-chart">
+            <div class="bar t5"><div class="bar-inner"></div></div>
+            <div class="bar t6"><div class="bar-inner"></div></div>
+            <div class="bar t7"><div class="bar-inner"></div></div>
+        </div>
+        <div class="month-labels">
+            <div class="month-label">T5</div>
+            <div class="month-label">T6</div>
+            <div class="month-label">T7</div>
+        </div>
+    </div>
+</div>
+</div>
+<div class="space"></div>
+            <div class="report-box error">
+                    <div class="report-header">
+                        <div class="report-title">SA đạt QC “Khá” (4 điểm)</div>
+                        <div class="report-weight-box">
+                            <div class="report-weight">W%: 20%</div>
+                        </div>
+                    </div>
+                    <div class="report-body">
+                        <!-- Cột trái -->
+                        <div class="left-panel">
+                            <div class="label-block">
+                                <div class="row"><div class="label">Chỉ tiêu</div><div class="value">39</div></div>
+                                <div class="row"><div class="label">Thực đạt</div><div class="value">31</div></div>
+                                <div class="row"><div class="label">% target</div><div class="value">80%</div></div>
+                            </div>
+                            <div class="a3ms-box">
+                                <div class="row"><div class="label">A3Ms</div><div class="value">42%</div></div>
+                            </div>
+                        </div>
+
+                        <!-- Cột giữa: donut chart -->
+                        <div class="middle-panel">
+                            <div class="chart-area">
+                                <div class="donut" style="--pct: 79%; --color-accent: #EA3829;"></div>
+                                <div class="percent-text" style="color: #EA3829;">79%</div>
+                            </div>
+                            <div class="month-change">
+                                <div class="warning-dot" style="border-color: #EA3829; width: 10.92px; height: 5.46px;">
+                                  <img src="/icons/Vector (1).svg" alt="Donut Chart" />
+                                </div>
+                                <div class="month-change-text">
+                                    <span style="color: #EA3829;">9%</span>
+                                    <span> tháng trước</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Cột phải: biểu đồ cột -->
+                        <div class="right-panel">
+                            <div class="percent-row">
+                                <div class="percent-value">85%</div>
+                                <div class="percent-value">88%</div>
+                                <div class="percent-value">79%</div>
+                            </div>
+                            <div class="bar-chart">
+                                <div class="bar"><div class="bar-inner" style="height: 58.75px;"></div></div>
+                                <div class="bar"><div class="bar-inner" style="height: 61.18px;"></div></div>
+                                <div class="bar"><div class="bar-inner" style="height: 54.92px;"></div></div>
+                            </div>
+                            <div class="month-labels">
+                                <div class="month-label">T5</div>
+                                <div class="month-label">T6</div>
+                                <div class="month-label">T7</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+  <div class="space"></div>
+
+<div class="report-box error">
+    <div class="report-header">
+        <div class="report-title">Focus Sale performance - all Bus</div>
+        <div class="report-weight-box">
+            <div class="report-weight">W%: 20%</div>
+        </div>
+    </div>
+    <div class="report-body">
+        <!-- Cột trái -->
+        <div class="left-panel">
+            <div class="label-block">
+                <div class="row"><div class="label">Chỉ tiêu</div><div class="value">39</div></div>
+                <div class="row"><div class="label">Thực đạt</div><div class="value">31</div></div>
+                <div class="row"><div class="label">% target</div><div class="value">80%</div></div>
+            </div>
+            <div class="a3ms-box">
+                <div class="row"><div class="label">A3Ms</div><div class="value">42%</div></div>
+            </div>
+        </div>
+
+        <!-- Cột giữa: Donut Chart -->
+        <div class="middle-panel">
+            <div class="chart-area">
+                <div class="donut" style="--pct: 79%; --color-accent: #EA3829;"></div>
+                <div class="percent-text" style="color: #EA3829;">79%</div>
+            </div>
+            <div class="month-change">
+                <div class="warning-dot" style="border-color: #E29800;"><img src="/icons/Vector (1).svg" alt="Warning" /></div>
+                <div class="month-change-text">
+                    <span style="color: #E29800;">0%</span>
+                    <span> tháng trước</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cột phải: Biểu đồ cột -->
+        <div class="right-panel">
+            <div class="percent-row">
+                <div class="percent-value">85%</div>
+                <div class="percent-value">88%</div>
+                <div class="percent-value">79%</div>
+            </div>
+            <div class="bar-chart">
+                <div class="bar"><div class="bar-inner" style="height: 58.75px;"></div></div>
+                <div class="bar"><div class="bar-inner" style="height: 61.18px;"></div></div>
+                <div class="bar"><div class="bar-inner" style="height: 54.92px;"></div></div>
+            </div>
+            <div class="month-labels">
+                <div class="month-label">T5</div>
+                <div class="month-label">T6</div>
+                <div class="month-label">T7</div>
+            </div>
+        </div>
+    </div>
 </div>
 
-  <!-- Sparkline bars -->
-  <div class="sparkline" id="sparkline-container">
-    <div class="sparkbar"><div class="fill" style="height:90%"></div></div>
-    <div class="sparkbar"><div class="fill" style="height:95%"></div></div>
-    <div class="sparkbar"><div class="fill" style="height:95%"></div></div>
-  </div>
+<div class="space"></div>
 
-  <!-- Nhãn dưới sparkline -->
-  <div class="day-labels">
-    <div class="bar-label text text--label">T5</div>
-    <div class="bar-label text text--label">T6</div>
-    <div class="bar-label text text--label">T7</div>
-  </div>
+<div class="report-box success">
+    <div class="report-header">
+        <div class="report-title">SA đạt Offtake Focus</div>
+        <div class="report-weight-box">
+            <div class="report-weight">W%: 20%</div>
+        </div>
+    </div>
+    <div class="report-body">
+        <!-- Cột trái -->
+        <div class="left-panel">
+            <div class="label-block">
+                <div class="row"><div class="label">Chỉ tiêu</div><div class="value">184</div></div>
+                <div class="row"><div class="label">Thực đạt</div><div class="value">175</div></div>
+                <div class="row"><div class="label">% target</div><div class="value">95%</div></div>
+            </div>
+            <div class="a3ms-box">
+                <div class="row"><div class="label">A3Ms</div><div class="value">93%</div></div>
+            </div>
+        </div>
+
+        <!-- Cột giữa: Donut Chart -->
+        <div class="middle-panel">
+            <div class="chart-area">
+                <div class="donut donut-green" style="--pct: 95%;"></div>
+                <div class="percent-text">95%</div>
+            </div>
+            <div class="month-change">
+                <div class="warning-dot" style="border-color: #008F5D;"><img src="/icons/Vector.svg" alt="Donut Chart" /></div>
+                <div class="month-change-text">
+                    <span style="color: #008F5D;">6%</span>
+                    <span> tháng trước</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cột phải: Bar chart -->
+        <div class="right-panel">
+            <div class="percent-row">
+                <div class="percent-value">90%</div>
+                <div class="percent-value">88%</div>
+                <div class="percent-value">95%</div>
+            </div>
+            <div class="bar-chart">
+                <div class="bar"><div class="bar-inner" style="height: 62.57px;"></div></div>
+                <div class="bar"><div class="bar-inner" style="height: 61.13px;"></div></div>
+                <div class="bar"><div class="bar-inner" style="height: 66.05px;"></div></div>
+            </div>
+            <div class="month-labels">
+                <div class="month-label">T5</div>
+                <div class="month-label">T6</div>
+                <div class="month-label">T7</div>
+            </div>
+        </div>
+    </div>
+</div>
+  
+
 `;
 reportContainer.appendChild(bodyContainer);
   // 4) References
